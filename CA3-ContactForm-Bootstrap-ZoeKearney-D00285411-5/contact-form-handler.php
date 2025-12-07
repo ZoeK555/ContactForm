@@ -73,10 +73,6 @@ if (empty($errors)) {
 </body>
 </html>
 BODY;
-
-
-    echo $email_body;
-    die();
     $success = mail($to, $email_subject, $email_body, $headers);
     //redirect to the 'thank you' page
     header('Location: 3ContactUs.html?success=' . $success);
