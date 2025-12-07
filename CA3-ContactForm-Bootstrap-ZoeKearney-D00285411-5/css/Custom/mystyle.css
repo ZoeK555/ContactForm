@@ -1,0 +1,320 @@
+/* Add your own CSS under here */
+
+.hero-kpi .kpi {min-width: 140px;}
+    .brand-accent { background: linear-gradient(135deg,#a18cd1, #fbc2eb); -webkit-background-clip: text; background-clip: text; color: transparent;}
+    .logo-dot {width:.65rem;height:.65rem;border-radius:50%;display:inline-block;background:linear-gradient(135deg,#fbc2eb,#a18cd1);margin-right:.4rem;}
+
+
+.brand-underline {
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.brand-underline::after {
+    padding-bottom: 2px;
+    content: '';
+    position: absolute;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    width: 0; 
+    background-color: #a18cd1;
+    transition : width 0.3s;
+}
+
+.brand-underline:hover::after {
+    width: 100%;
+}
+
+/* Timmeline/About our business:  */
+
+/* .timeline {
+  position: relative;
+  margin: 0 auto;
+  
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  transform: translateX(-50%);
+  background-color: #a18cd1;
+  height: 55%;
+  top: 0;
+  left: 50%;
+  margin-left: -2px;
+z-index: -1;
+} */
+
+
+.timelinecontainer {
+  position: relative;
+  width: 50%;
+  padding : 10px;
+}
+
+.timelineleft {
+  position: relative;
+    left: -28%;    
+}
+.timelineright {
+  position: relative;
+  right: -28%;
+}
+
+.timelinetext {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 6px;
+  position: relative;
+}
+/* 
+.brand-underline-timeline {
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.brand-underline-timeline::after{
+    padding-bottom: 2px;
+    content: '';
+    position: absolute;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    width: 0; 
+    background-color: #a18cd1;
+    transition : width 0.3s;
+} */
+
+
+/* AboutUs SVG */
+
+
+
+/* .svg-circle {
+  border-radius: 50%;
+  position: absolute;
+    left: 48.75%;
+    top: 250px;
+  z-index: 10;
+}
+
+
+
+.svg-circle-right {
+    border-radius: 50%;
+    position: absolute;
+      right: 47.5%;
+      top: 425px;
+    z-index: 10;
+  }
+
+  .svg-circle-left {
+    border-radius: 50%;
+    position: absolute;
+      left: 47.5%;
+      top: 800px;
+    z-index: 10;
+  }
+
+  .svg-circle-right-2 {
+    border-radius: 50%;
+    position: absolute;
+      right: 47.5%;
+      top: 1275px;
+    z-index: 10;
+  } */
+
+
+/* @media (max-width: 75em) {
+  .svg-circle {
+    display: none;
+  }
+  .timeline::after {
+    display: none;
+  }
+  .timeline {
+    margin: 0 auto;
+    padding-left: 0;
+  } */
+
+  /* Move the vertical line to the left */
+  /* .timeline::after {
+    left: 16px;        /* stick the line near the left edge */
+    /* margin-left: 0;
+  } */
+
+  /* Each block becomes full width */
+  /* .timelinecontainer {
+    width: 100%;
+    padding-left: 3rem;  space for the line & dot */
+    /* padding-right: 1rem; */
+  /* } */
+
+  /* Remove the left/right offset tricks */
+  /* .timelineleft,
+  .timelineright {
+    left: 0;
+    right: 0;
+  } */
+
+  /* Put the dots on the left side for all items */
+  /* .svg-circle,
+  .svg-circle-right {
+    left: 8px;
+    right: auto;
+  }
+
+} */
+
+
+
+
+
+.page-line {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 120vh;
+  background-color: #a18cd1;
+  opacity: 0.5;
+  transform-origin: top;
+  transform: scaleY(0);
+
+  z-index: -10;
+}
+
+
+
+
+
+
+  
+ .section-row{
+    margin-bottom: 100px;
+  }
+
+
+  .spacer{
+    height: 1000px;
+  }
+
+
+
+
+
+
+
+
+
+
+  .img-resize {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Slideshow CSS */
+
+  /* * {box-sizing:border-box} */
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  max-height: 500px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+/* .mySlides {
+  display: none;
+} */
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+} */
+/* 
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+} */
+
+
+
+.card-text-bottom {
+ text-align: bottom;
+
+
+
+
+}

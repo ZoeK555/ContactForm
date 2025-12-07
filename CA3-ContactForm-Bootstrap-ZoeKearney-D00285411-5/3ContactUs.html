@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Stanley Charter Accountants</title>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script> -->
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/Custom/mystyle.css" rel="stylesheet">
+    <link href="css/Custom/glass.css" rel="stylesheet">
+  </head>
+
+
+
+  <body class="glass-theme bg-glass-backdrop" data-bs-theme="dark">
+    
+    <nav class="navbar navbar-expand-lg container mt-3 rounded-4 px-3">
+      <div class="container">
+        <a class="navbar-brand" href="Index.html">
+          <span class="logo-dot"></span>Stanley Charter Accountants</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </ul>
+          <span class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link brand-underline" aria-current="page" href="1Services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link brand-underline" aria-current="page" href="2AboutUs.html">About Our Business</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link brand-underline" aria-current="page" href="3ContactUs.html">Contact Us</a>
+              </li>
+            </ul>
+          </span>
+          </div>
+      </div>
+    </nav>
+
+
+    <div class=" text-center p-3">
+      <h1>Let us help you with any <span class='brand-underline'>questions</span> <br>We are always here to support <span class='brand-underline'>you & your business</span></h1>
+        </div>
+
+
+
+<!-- MAIN: Contact -->
+<main class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <section class="glass p-4 p-md-5 rounded-5">
+          <h1 class="h3 fw-semibold mb-3">Contact Stanley Charter Accountants</h1>
+          <p class="text-opacity-75 mb-4">
+            Send us a message and we’ll get back within one business day.
+          </p>
+
+          <form id="contactForm" action="contact-form-handler.php" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Full name</label>
+                <input id="name" name="name" type="text" class="form-control" placeholder="Your name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email address</label>
+                <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="service" class="form-label">Service</label>
+                <select id="service" name="service" class="form-select" required>
+                  <option value="" selected disabled>Choose a service…</option>
+                  <option value="Annual Accounts">Annual Accounts</option>
+                  <option value="Tax Returns">Tax Returns</option>
+                  <option value="Payroll">Payroll</option>
+                  <option value="Business Advisory">Business Advisory</option>
+                </select>
+                <div class="invalid-feedback">Please choose a service.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone (optional)</label>
+                <input id="phone" name="contactNumber" type="tel" class="form-control" placeholder="+353 …">
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control" rows="4" placeholder="How can we help?" required></textarea>
+                <div class="invalid-feedback">Please enter a message.</div>
+              </div>
+              <div class="col-12 d-flex align-items-center gap-3 mt-2">
+                <button id="submitBtn" type="submit" class="btn btn-light glass-btn px-4">
+                  <span class="submit-text">Send message</span>
+                  <span class="submit-spinner visually-hidden">
+                    <span class="spinner-border spinner-border-sm align-text-top" role="status" aria-hidden="true"></span>
+                    Sending…
+                  </span>
+                </button>
+                <small class="text-opacity-75">We reply within one business day.</small>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST: submit feedback -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1080">
+    <div id="contactToast" class="toast align-items-center border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Thanks! Your message has been sent. We’ll be in touch shortly.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+
+<!-- SCRIPTS (inline) -->
+<!-- If you haven’t already included Bootstrap’s JS elsewhere, keep this CDN bundle: -->
+<script>
+  (function () {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = submitBtn.querySelector('.submit-text');
+    const submitSpinner = submitBtn.querySelector('.submit-spinner');
+    const toastEl = document.getElementById('contactToast');
+    const toast = new bootstrap.Toast(toastEl, { autohide: true, delay: 3500 });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('success');
+    if (myParam === '1') {
+      toast.show();
+    }
+    // Helper: simple form validation UI
+    function validateForm() {
+      let valid = true;
+      Array.from(form.elements).forEach(el => {
+        if (el.hasAttribute('required')) {
+          if (!el.value || (el.type === 'email' && !el.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))) {
+            el.classList.add('is-invalid');
+            valid = false;
+          } else {
+            el.classList.remove('is-invalid');
+          }
+        }
+      });
+      return valid;
+    }
+
+    // Show/hide loading state
+    function setSubmitting(isSubmitting) {
+      submitBtn.disabled = isSubmitting;
+      submitText.classList.toggle('visually-hidden', isSubmitting);
+      submitSpinner.classList.toggle('visually-hidden', !isSubmitting);
+    }
+
+    // Collect data and log to console
+    function getFormData() {
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        service: form.service.value,
+        phone: form.contactNumber.value.trim(),
+        message: form.message.value.trim(),
+        submittedAt: new Date().toISOString()
+      };
+      console.log('[ContactForm] Submitted payload:', data);
+      return data;
+    }
+
+    // Submit handler
+    form.addEventListener('submit', async (e) => {
+
+      if (!validateForm()) {
+        // Scroll first invalid into view (nice touch on mobile)
+        const firstInvalid = form.querySelector('.is-invalid');
+        if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Simulate async send (replace with real fetch if needed)
+      setSubmitting(true);
+      form.submitBtn.submit();
+      try {
+        // Success: reset & toast
+        form.reset();
+        Array.from(form.elements).forEach(el => el.classList.remove('is-invalid'));
+        toast.show();
+      } catch (err) {
+        console.error('[ContactForm] Error submitting form:', err);
+        // Optionally, turn toast into an error state or show an alert
+        toastEl.querySelector('.toast-body').textContent = 'Sorry, something went wrong. Please try again.';
+        toast.show();
+      } finally {
+        setSubmitting(false);
+      }
+    });
+
+    // Clear invalid state on input
+    form.addEventListener('input', (e) => {
+      const el = e.target;
+      if (el.classList.contains('is-invalid') && el.value.trim() !== '') {
+        el.classList.remove('is-invalid');
+      }
+    });
+  })();
+</script>
+
+
+  <div class=" text-center p-3">
+    <h1>We are happy to <span class='brand-underline'>call you back </span>  if you need<br>Fill out the request form below, We'll be in touch <span class='brand-underline'>as soon as possible</span></h1>
+      </div>
+    </div>
+        </div>
+
+
+
+        <section class="container pb-5" id="cta">
+          <div class="glass rounded-5 p-4 p-md-5 d-flex flex-column flex-md-row align-items-md-center">
+            <div class="flex-fill">
+              <h2 class="h4 fw-semibold mb-2">Let’s get your accounts in order</h2>
+              <p class="mb-0">Book a free 20-minute consultation to discuss your situation and next steps.</p>
+            </div>
+            <button class="btn btn-light glass-btn mt-3 mt-md-0 ms-md-3 px-4" data-bs-toggle="modal" data-bs-target="#consultModal">Book now</button>
+          </div>
+        </section>
+
+<!-- MODAL (shows modal styling) -->
+<div class="modal fade" id="consultModal" tabindex="-1" aria-labelledby="consultModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="consultModalLabel">Book a free consultation</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" name="contactform" action="contact-form-handler.php"> 
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Full name</label>
+            <input type="text" class="form-control" placeholder="Your name">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" placeholder="you@example.com">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Preferred time</label>
+            <select class="form-select">
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Notes</label>
+            <textarea class="form-control" rows="3" placeholder="Tell us a little about your needs"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-light toastTrigger glass-btn " type="button" input type="submit" value="Submit">>Request meeting</button>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- TOAST (shows toast styling) -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+  <div id="demoToast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Thanks! We’ll be in touch shortly.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <footer class="mt-auto">
+          <div class="container pb-4 pb-md-5">
+            <div class="glass rounded-5 p-4 p-md-5">
+              <div class="row g-4">
+                <!-- About / Brand -->
+                <div class="col-12 col-md-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="logo-dot"></span>
+                    <span class="fw-semibold">Stanley Charter Accountants</span>
+                  </div>
+                  <p class="mb-3 text-opacity-75">
+                    Chartered accountants & tax advisors providing transparent,
+                    fixed-fee services to Irish businesses.
+                  </p>
+                  <ul class="list-unstyled small text-opacity-75 mb-0">
+                    <li class="mb-1"><a class="link-light" href="mailto:hello@stanleycharter.ie">hello@stanleycharter.ie</a></li>
+                    <li class="mb-1"><a class="link-light" href="tel:+3531000000">+353 (01) 000 0000</a></li>
+                    <li>Dublin 2, Ireland</li>
+                  </ul>
+                </div>
+        
+                <!-- Quick Links -->
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="small text-uppercase text-opacity-75 mb-2">Stay in the loop</div>
+                  <form class="row g-2">
+                    <div class="col-12">
+                      <input type="email" class="form-control" placeholder="you@example.com" aria-label="Email for newsletter">
+                    </div>
+                    <div class="col-12 d-grid">
+                      <button type="button" class="btn btn-light glass-btn">Subscribe</button>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-text text-opacity-75">Monthly tax tips & deadlines. Unsubscribe anytime.</div>
+                    </div>
+                  </form>
+        
+                  <!-- Hours using a simple two-column layout -->
+                  <div class="mt-4">
+                    <div class="small text-uppercase text-opacity-75 mb-2">Office Hours</div>
+                    <div class="row row-cols-2 g-1 small">
+                      <div class="col text-opacity-75">Mon–Thu</div><div class="col text-end">09:00–17:30</div>
+                      <div class="col text-opacity-75">Fri</div><div class="col text-end">09:00–16:30</div>
+                      <div class="col text-opacity-75">Sat–Sun</div><div class="col text-end">Closed</div>
+                    </div>
+                  </div>
+                </div>
+        
+        
+                <!-- Services -->
+                <div class="col-6 col-md-5">
+                  <div class="glass ratio ratio-16x9 rounded-3">
+                  <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9528.75154526004!2d-6.264573113336666!3d53.33989280659701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e99f179a43f%3A0xd184cba93356be9e!2sDublin%202!5e0!3m2!1sen!2sie!4v1762451367637!5m2!1sen!2sie"
+                            title="Map placeholder"
+                            style="background: rgba(255,255,255,.06); border: 0;"
+                          ></iframe>
+                        </div>
+        
+                  <!-- <div class="small text-uppercase text-opacity-75 mb-2">Services</div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-1"><a class="link-light" href="#">Accounts</a></li>
+                    <li class="mb-1"><a class="link-light" href="#">Tax Returns</a></li>
+                    <li class="mb-1"><a class="link-light" href="#">Payroll</a></li>
+                    <li class="mb-1"><a class="link-light" href="#">Advisory</a></li>
+                  </ul> -->
+                </div>
+        
+                <!-- Newsletter -->
+                <!-- <div class="col-12 col-md-2">
+                  <div class="small text-uppercase text-opacity-75 mb-2">Newsletter</div>
+                  <form class="d-flex flex-column gap-2">
+                    <input type="email" class="form-control" placeholder="you@example.com" aria-label="Email">
+                    <button type="button" class="btn btn-light glass-btn">Subscribe</button>
+                  </form>
+                  <div class="form-text text-opacity-75 mt-1">
+                    Monthly tips & updates.
+                  </div>
+                </div> -->
+              </div>
+        
+              <hr class="border-light border-opacity-25 my-4">
+        
+              <!-- Bottom Bar -->
+              <div class="row align-items-center small gy-2">
+                <div class="col-12 col-md">
+                  <span class="text-opacity-75">© <span id="year-footer"></span> Stanley Charter Accountants</span>
+                </div>
+                <div class="col-12 col-md-auto">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a class="link-light" href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a class="link-light" href="#">Terms</a></li>
+                    <li class="list-inline-item"><a class="link-light" href="3ContactUs.html">Support</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        
+<script>
+  (document.getElementById('year-footer') || {}).textContent = new Date().getFullYear();
+
+// Keep footer year current
+(document.getElementById('year-footer') || {}).textContent = new Date().getFullYear();
+
+//   const toastTriggers = document.querySelectorAll('.toastTrigger');
+//   console.log(toastTriggers);
+//   // Show toast when the hero form "Send" is clicked
+//   toastTriggers.forEach(trigger => {
+//   trigger.addEventListener('click', () => {
+//     const toastEl = document.getElementById('demoToast');
+//     const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+//     toast.show();
+//   });
+// });
+const toastTriggers = document.querySelectorAll('.toastTrigger');
+
+toastTriggers.forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+
+    // SHOW TOAST
+    const toastEl = document.getElementById('demoToast');
+    const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+    toast.show();
+
+    // IF BUTTON IS INSIDE A MODAL → close modal, reset form
+    const modal = trigger.closest('.modal');
+    if (modal) {
+      const modalInstance = bootstrap.Modal.getInstance(modal);
+      // Delay to prevent ARIA focus error
+      setTimeout(() => modalInstance.hide(), 0);
+
+
+      // Reset only that modal's form
+      const form = modal.querySelector('form');
+      if (form) form.reset();
+    }
+
+    // IF BUTTON IS INSIDE A FORM ON THE PAGE → reset it
+    const parentForm = trigger.closest('form');
+    if (parentForm && !modal) {
+      parentForm.reset();
+    }
+  });
+});
+
+
+
+</script>
+
+
+</main>
+
+
+
+  </body>
+</html>

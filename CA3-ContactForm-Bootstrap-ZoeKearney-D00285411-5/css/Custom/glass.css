@@ -1,0 +1,299 @@
+/* ===========================
+   Glassmorphism for Bootstrap
+   Scope with .glass-theme to avoid global overrides
+   =========================== */
+
+/* ---- Theme variables you can tweak in one place ---- */
+.glass-theme {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    --glass-blur: 12px;
+    --glass-saturate: 140%;
+  
+    /* Text/link colors for dark-on-glass */
+    --glass-text: #f7f7f9;
+    --glass-muted: rgba(255, 255, 255, 0.80);
+    --glass-link: #ffffff;
+    --glass-link-hover: #e2e8ff;
+  
+    /* For light mode (optional): flip these in a .glass-theme.light wrapper if needed */
+  }
+  
+  /* Optional page backdrop if you want the blur to be visible */
+  .bg-glass-backdrop {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #a18cd1 0%, transparent 55%),
+      radial-gradient(1000px 800px at 110% 10%, #fbc2eb 0%, transparent 50%),
+      radial-gradient(1000px 800px at 115% 60%, #fbc2eb 0%, transparent 50%),
+      radial-gradient(600px 1200px at 0% 55%, #fbc2eb 0%, transparent 25%),
+      radial-gradient(1200px 600px at 25% 105%, #a18cd1 0%, transparent 50%),
+      linear-gradient(180deg, #0b1020 0%, #0b0f1a 100%);
+    min-height: 100vh;
+  }
+  
+  /* ---- Core reusable utility ---- */
+  .glass-theme .glass,
+  .glass-theme .is-glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    color: var(--glass-text);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+  
+  /* ---- Bootstrap component hooks (only inside .glass-theme) ---- */
+  
+  /* Navbar */
+  .glass-theme .navbar {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: var(--glass-shadow);
+    border-radius: 1rem;
+    color: var(--glass-text);
+  }
+  
+  /* Dropdowns and nav menus */
+  .glass-theme .dropdown-menu,
+  .glass-theme .navbar .dropdown-menu {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Cards */
+  .glass-theme .card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    color: var(--glass-text);
+    border-radius: 1rem;
+  }
+  .glass-theme .card .card-header,
+  .glass-theme .card .list-group-item {
+    background: transparent;
+    border-color: var(--glass-border);
+    color: var(--glass-text);
+  }
+  
+  /* Buttons (keep Bootstrap’s variants but add a glassy lift on .btn-light / outlines) */
+  .glass-theme .btn.glass-btn,
+  .glass-theme .btn-light,
+  .glass-theme .btn-outline-light {
+    background: rgba(255, 255, 255, 0.22);
+    color: #111827;
+    border-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(6px) saturate(140%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
+  }
+  .glass-theme .btn.glass-btn:hover,
+  .glass-theme .btn-light:hover,
+  .glass-theme .btn-outline-light:hover {
+    background: rgba(198, 162, 220, 0.30);
+    color: #f6f6f6;
+  }
+  
+  /* Forms */
+  .glass-theme .form-control,
+  .glass-theme .form-select,
+  .glass-theme .input-group-text {
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--glass-text);
+    border-color: var(--glass-border);
+    backdrop-filter: blur(6px) saturate(140%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
+  }
+  .glass-theme .form-control::placeholder { color: var(--glass-muted); }
+  .glass-theme .form-control:focus,
+  .glass-theme .form-select:focus {
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, 0.15);
+  }
+  
+  /* List group */
+  .glass-theme .list-group {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+  }
+  .glass-theme .list-group-item {
+    background: transparent;
+    color: var(--glass-text);
+    border-color: var(--glass-border);
+  }
+  
+  /* Modals */
+  .glass-theme .modal-content {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: var(--glass-shadow);
+    color: var(--glass-text);
+  }
+  
+  /* Offcanvas */
+  .glass-theme .offcanvas,
+  .glass-theme .offcanvas-header,
+  .glass-theme .offcanvas-body {
+    background: var(--glass-bg);
+    color: var(--glass-text);
+    border-color: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+  
+  /* Dropdown items / links */
+  .glass-theme .dropdown-item { color: var(--glass-text); }
+  .glass-theme a { color: var(--glass-link); }
+  .glass-theme a:hover { color: var(--glass-link-hover); }
+  
+  /* Breadcrumb */
+  .glass-theme .breadcrumb {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: .75rem;
+    padding: .5rem .75rem;
+  }
+  
+  /* Accordion */
+  .glass-theme .accordion-item {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: .75rem;
+  }
+  .glass-theme .accordion-button {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--glass-text);
+  }
+  .glass-theme .accordion-button:not(.collapsed) {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--glass-text);
+    box-shadow: inset 0 -1px 0 var(--glass-border);
+  }
+  
+  /* Toasts */
+  .glass-theme .toast {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--glass-text);
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+  }
+  
+  /* Tables: keep solid by default; add .glass on demand */
+  .glass-theme table.glass,
+  .glass-theme .table.glass {
+    background: var(--glass-bg);
+    color: var(--glass-text);
+    border-color: var(--glass-border);
+  }
+  
+  /* Small polish */
+  .glass-theme .rounded-glass { border-radius: 1rem; }
+  .glass-theme .shadow-glass { box-shadow: var(--glass-shadow); }
+  
+  /* Accessibility: reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .glass-theme * { transition: none !important; animation: none !important; }
+  }
+  
+  /* Fallback when blur isn’t supported */
+  @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .glass-theme .glass,
+    .glass-theme .is-glass,
+    .glass-theme .navbar,
+    .glass-theme .dropdown-menu,
+    .glass-theme .card,
+    .glass-theme .modal-content,
+    .glass-theme .offcanvas,
+    .glass-theme .toast,
+    .glass-theme .form-control,
+    .glass-theme .form-select,
+    .glass-theme .input-group-text,
+    .glass-theme .breadcrumb,
+    .glass-theme .accordion-item,
+    .glass-theme .accordion-button {
+      /* Slightly more opaque to compensate for no blur */
+      background: rgba(255, 255, 255, 0.18);
+    }
+  }
+  
+
+
+ /* ==== Glassmorphic carousel (simplified & stable) ==== */
+
+/* Main card wrapper */
+.glass-theme .slideshow-container.glass {
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+/* Carousel background */
+.glass-theme .slideshow-container .carousel {
+  background: radial-gradient(circle at top, rgba(255,255,255,0.18), transparent 55%);
+  border-radius: 1.25rem;
+  padding-bottom: 0.75rem; /* space for caption */
+}
+
+/* Give the slide area a fixed visual height */
+.glass-theme .slideshow-container .carousel-inner.img-resize {
+  width: 100%;
+  height: 260px;              /* tweak to taste (220–320px works well) */
+  overflow: hidden;           /* hide overflow in transitions */
+}
+
+/* Make each slide fill that height */
+.glass-theme .slideshow-container .carousel-inner.img-resize .carousel-item {
+  height: 100%;
+}
+
+/* Normalise image sizes and cropping */
+.glass-theme .slideshow-container .carousel-inner.img-resize .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* handles different image sizes */
+  display: block;
+  border-radius: 1rem;
+}
+
+/* Caption underneath image, not affecting slide height */
+.glass-theme .slideshow-container .carousel-item h4 {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: var(--glass-text, #f7f7f9);
+}
+
+/* Indicators: glassy dots */
+.glass-theme .slideshow-container .carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin: 0 4px;
+  background-color: rgba(255,255,255,0.35);
+  border: 1px solid rgba(0,0,0,0.25);
+}
+.glass-theme .slideshow-container .carousel-indicators .active {
+  background-color: #ffffff;
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* Control icons readable on glass background */
+.glass-theme .slideshow-container .carousel-control-prev-icon,
+.glass-theme .slideshow-container .carousel-control-next-icon {
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+}
+
+
+
+
+/* temp */
+
+
+
+
